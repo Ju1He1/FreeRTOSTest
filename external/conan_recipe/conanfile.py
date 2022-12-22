@@ -55,7 +55,7 @@ class FreeRTOSConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(build_script_folder="freertos")
+        cmake.configure(build_script_folder="FreeRTOSTest")
         cmake.build()
         cmake.test(build_type=self.settings.build_type, target="FreeRTOS")
 
