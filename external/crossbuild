@@ -1,0 +1,19 @@
+target_host=arm-none-eabi
+standalone_toolchain=C:/git/fluegas/t3xx_2025/toolchains/Windows/gcc-10.2.1/
+
+[settings]
+os=Arduino
+os.board=ANY
+arch=armv7
+compiler=gcc
+compiler.version=10
+compiler.libcxx=libstdc++11
+build_type=Debug
+
+
+
+[conf]
+tools.cmake.cmaketoolchain:user_toolchain=["C:/git/fluegas/t3xx_2025/toolbox/cmake/toolchain/arm-none-eabi/arm-gcc-toolchain.cmake"]
+tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
+tools.build:cxxflags=["-I $standalone_toolchain$target_host/include", "-mcpu=cortex-m4", "-mthumb", "-mfloat-abi=hard", "-mfpu=fpv4-sp-d16", "--specs=nosys.specs", "-v"]
+tools.build:cflags=["-I $standalone_toolchain$target_host/include", "-mcpu=cortex-m4", "-mthumb", "-mfloat-abi=hard", "-mfpu=fpv4-sp-d16", "--specs=nosys.specs", "-v"]
