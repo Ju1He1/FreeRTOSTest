@@ -167,8 +167,8 @@ if(MODULE_SOURCES)
   add_library(           "${module_name}"
   			              ${MODULE_SOURCES}) 
 
-  if(${PROJECT_NAME_UPPERCASE}_BUILD_TARGET)
-    target_compile_definitions("${module_name}" INTERFACE _GLIBCXX_HAS_GTHREADS)
+  if(BUILD_TARGET)
+    target_compile_definitions("${module_name}" PUBLIC _GLIBCXX_HAS_GTHREADS)
   endif()
 
   target_compile_definitions(${module_name} PRIVATE $<$<C_COMPILER_ID:MSVC>:_CRT_SECURE_NO_WARNINGS>)
