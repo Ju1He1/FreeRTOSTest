@@ -104,7 +104,6 @@ endif()
 if(BUILD_TARGET)
   list(APPEND MODULE_SOURCES 
     "Source/portable/GCC/ARM_CM4F/port.c" "Source/portable/GCC/ARM_CM4F/portmacro.h"
-    "app/cortex-m4f/configureRunTimeStats.h" "app/cortex-m4f/configureRunTimeStats.c"
   )
 else()
 
@@ -235,7 +234,6 @@ if(MODULE_SOURCES)
     list(APPEND FREERTOS_HEADER_FILES 
       "Source/portable/GCC/ARM_CM4F/portmacro.h"
       "app/cortex-m4f/FreeRTOSConfig.h"
-      "app/cortex-m4f/configureRunTimeStats.h"
     )
   endif()
 
