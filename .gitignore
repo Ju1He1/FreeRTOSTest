@@ -1,2 +1,3 @@
 .vs/
 build/
+external/conan_recipe/test_package/CMakeUserPresets.json
