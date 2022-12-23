@@ -80,6 +80,7 @@ if(BUILD_TARGET)
     "cpp11_gcc/thread.cpp"
     "cpp11_gcc/thread_gthread.h"
     "cpp11_gcc/bits/gthr-default.h"
+	"app/cortex-m4f/stub.c"
   )
 else()
   #ADD Debug Logger (only in Simmulation)
