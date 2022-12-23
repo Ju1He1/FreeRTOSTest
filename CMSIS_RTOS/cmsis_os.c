@@ -57,10 +57,10 @@
 #include "cmsis_os.h"
 
 
-#ifdef BUILD_SIMULATION
+
  //Heju Add
 extern int __get_IPSR();
-#endif //BUILD_SIMULATION
+
 /*
  * ARM Compiler 4/5
  */

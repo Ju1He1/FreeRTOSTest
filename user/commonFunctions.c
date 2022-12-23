@@ -6,7 +6,7 @@
 #include "CMSIS_Simulation_Mock.h"
 #endif // BUILD_SIMULATION
 
-
+extern int __get_IPSR();
 
 bool inHandlerModePublic()
 {
