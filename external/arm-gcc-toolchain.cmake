@@ -11,6 +11,7 @@ if(WIN32)
 else()
   set(COMPILER_EXE_SUFFIX "")
 endif()
+message("CMAKE_TOOLCHAIN_FILE is ${CMAKE_TOOLCHAIN_FILE}")
 #[[
 set(CMAKE_AR                        arm-none-eabi-ar${EXECUTABLE_SUFFIX})
 set(CMAKE_ASM_COMPILER              arm-none-eabi-gcc${EXECUTABLE_SUFFIX})
@@ -26,7 +27,7 @@ if(EXISTS ${BAREMETAL_ARM_TOOLCHAIN_PATH})
   message(STATUS "Cross compiler directory ${BAREMETAL_ARM_TOOLCHAIN_PATH} exists...")
 else()
   # when this is called from conan ${BAREMETAL_ARM_TOOLCHAIN_PATH} is not available => search compiler in specified path from conan profile
-  message(STATUS "Cross compiler directory (${BAREMETAL_ARM_TOOLCHAIN_PATH}) does not exist.... searching compiler in PATH $ENV{PATH}")
+  message(STATUS "Cross compiler directory (${BAREMETAL_ARM_TOOLCHAIN_PATH}) does not exist is it set in the Conan Profile?")
 endif()
 
 set(CMAKE_AR ${BAREMETAL_ARM_TOOLCHAIN_PATH}arm-none-eabi-ar${COMPILER_EXE_SUFFIX})
@@ -41,9 +42,7 @@ set(CMAKE_STRIP ${BAREMETAL_ARM_TOOLCHAIN_PATH}arm-none-eabi-strip${COMPILER_EXE
 
 if(NOT TESTO_COMPILER_ARCH_FLAGS)
   # Conan does not have access to the cached variables from CMakePresets.json => use settings from Env
-  message(WARNING "TESTO_COMPILER_ARCH_FLAGS not set.... searching ENV{TESTO_COMPILER_ARCH_FLAGS} $ENV{TESTO_COMPILER_ARCH_FLAGS}")
-  set(TESTO_COMPILER_ARCH_FLAGS "$ENV{TESTO_COMPILER_ARCH_FLAGS}")
-  message("Setting TESTO_COMPILER_ARCH_FLAGS to ${TESTO_COMPILER_ARCH_FLAGS}")
+  message(WARNING "TESTO_COMPILER_ARCH_FLAGS not set.... are they set via the conan profile?")
 else()
   message("TESTO_COMPILER_ARCH_FLAGS exist. Value ${TESTO_COMPILER_ARCH_FLAGS}")
 endif()

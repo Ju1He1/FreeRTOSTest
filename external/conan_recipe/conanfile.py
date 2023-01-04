@@ -10,7 +10,7 @@ class FreeRTOSConan(ConanFile):
     # Optional metadata
     license = "Apache 2.0"
     author = "Julian Heni"
-    url = "https://github.com/Ju1He1/FreeRTOSTest.git"
+    url = "https://gitlab.cds.testo/third_party/freertos"
     description = "FreeRTOS as a conan 3rd party"
     topics = ("FreeRTOS", "c", "c++")
 
@@ -20,7 +20,7 @@ class FreeRTOSConan(ConanFile):
                "fPIC": [True, False],
                "BUILD_TARGET": [True, False]
                }
-    default_options = {"shared": False,
+    default_options = {"shared": True,
                        "fPIC": True,
                        "BUILD_TARGET": False}
     generators = "CMakeDeps"
