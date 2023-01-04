@@ -15,5 +15,5 @@ build_type=Debug
 [conf]
 tools.cmake.cmaketoolchain:user_toolchain=["C:/git/github/FreeRTOSTest/external/arm-gcc-toolchain.cmake"]
 tools.cmake.cmaketoolchain:generator=Ninja Multi-Config
-tools.build:cxxflags=["-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs"]
-tools.build:cflags=["-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs"]
+tools.build:cxxflags=["-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -v"]
+tools.build:cflags=["-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -v"]
