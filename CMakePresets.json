@@ -59,8 +59,8 @@
         "BUILD_SHARED_LIBS": "OFF",
         "CMAKE_BUILD_WITH_INSTALL_RPATH": "ON",
         "CMAKE_EXECUTABLE_SUFFIX": ".elf",
-        "TESTO_COMPILER_ARCH_FLAGS": "-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -v",
-        "TESTO_LINKER_ARCH_FLAGS": "-mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb",
+        "COMPILER_ARCH_FLAGS": "-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -v",
+        "LINKER_ARCH_FLAGS": "-mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb",
         "CMAKE_POSITION_INDEPENDENT_CODE": "OFF"
       },
       "toolchainFile": "${sourceDir}/external/arm-gcc-toolchain.cmake"

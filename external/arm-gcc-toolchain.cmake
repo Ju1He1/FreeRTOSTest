@@ -30,18 +30,18 @@ set(CMAKE_RANLIB ${BAREMETAL_ARM_TOOLCHAIN_PATH}arm-none-eabi-ranlib${COMPILER_E
 set(CMAKE_SIZE ${BAREMETAL_ARM_TOOLCHAIN_PATH}arm-none-eabi-size${COMPILER_EXE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP ${BAREMETAL_ARM_TOOLCHAIN_PATH}arm-none-eabi-strip${COMPILER_EXE_SUFFIX} CACHE INTERNAL "")
 
-if(NOT TESTO_COMPILER_ARCH_FLAGS)
+if(NOT COMPILER_ARCH_FLAGS)
   # Conan does not have access to the cached variables from CMakePresets.json => use settings from Env
-  message(WARNING "TESTO_COMPILER_ARCH_FLAGS not set.... are they set via the conan profile?")
+  message(WARNING "COMPILER_ARCH_FLAGS not set.... are they set via the conan profile?")
 else()
-  message("TESTO_COMPILER_ARCH_FLAGS exist. Value ${TESTO_COMPILER_ARCH_FLAGS}")
+  message("COMPILER_ARCH_FLAGS exist. Value ${COMPILER_ARCH_FLAGS}")
 endif()
 
-set(CMAKE_C_FLAGS_INIT "${TESTO_COMPILER_ARCH_FLAGS} -fdata-sections -ffunction-sections" CACHE INTERNAL "" FORCE)
+set(CMAKE_C_FLAGS_INIT "${COMPILER_ARCH_FLAGS} -fdata-sections -ffunction-sections" CACHE INTERNAL "" FORCE)
 set(CMAKE_CXX_FLAGS_INIT "${CMAKE_C_FLAGS_INIT} " CACHE INTERNAL "" FORCE)
 
 # -Wl,--print-gc-sections will print all removed sections
-set(CMAKE_EXE_LINKER_FLAGS_INIT "${TESTO_LINKER_ARCH_FLAGS} -Wl,--gc-sections" CACHE INTERNAL "")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "${LINKER_ARCH_FLAGS} -Wl,--gc-sections" CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS_DEBUG_INIT "-Og -g" CACHE INTERNAL "")
 set(CMAKE_C_FLAGS_RELEASE_INIT "-Os -DNDEBUG" CACHE INTERNAL "")
