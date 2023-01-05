@@ -74,6 +74,20 @@
       "jobs": 12
     },
     {
+      "name": "arm_none_eabi_dbg",
+      "inherits": "_base",
+      "displayName": "Debug",
+      "configurePreset": "arm_none_eabi",
+      "configuration": "Debug"
+    },
+    {
+      "name": "arm_none_eabi_rel",
+      "inherits": "_base",
+      "displayName": "Release",
+      "configurePreset": "arm_none_eabi",
+      "configuration": "Release"
+    },
+    {
       "name": "windows-base_dbg",
       "inherits": "_base",
       "displayName": "Debug",
