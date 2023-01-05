@@ -12,17 +12,7 @@ else()
   set(COMPILER_EXE_SUFFIX "")
 endif()
 message("CMAKE_TOOLCHAIN_FILE is ${CMAKE_TOOLCHAIN_FILE}")
-#[[
-set(CMAKE_AR                        arm-none-eabi-ar${EXECUTABLE_SUFFIX})
-set(CMAKE_ASM_COMPILER              arm-none-eabi-gcc${EXECUTABLE_SUFFIX})
-set(CMAKE_C_COMPILER                arm-none-eabi-gcc${EXECUTABLE_SUFFIX})
-set(CMAKE_CXX_COMPILER              arm-none-eabi-g++${EXECUTABLE_SUFFIX})
-set(CMAKE_LINKER                    arm-none-eabi-ld${EXECUTABLE_SUFFIX})
-set(CMAKE_OBJCOPY                   arm-none-eabi-objcopy${EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_RANLIB                    arm-none-eabi-ranlib${EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_SIZE                      arm-none-eabi-size${EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_STRIP                     arm-none-eabi-strip${EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-]]
+
 if(EXISTS ${BAREMETAL_ARM_TOOLCHAIN_PATH})
   message(STATUS "Cross compiler directory ${BAREMETAL_ARM_TOOLCHAIN_PATH} exists...")
 else()
@@ -48,10 +38,10 @@ else()
 endif()
 
 set(CMAKE_C_FLAGS_INIT "${TESTO_COMPILER_ARCH_FLAGS} -fdata-sections -ffunction-sections" CACHE INTERNAL "" FORCE)
-set(CMAKE_CXX_FLAGS_INIT "${CMAKE_C_FLAGS} " CACHE INTERNAL "" FORCE)
+set(CMAKE_CXX_FLAGS_INIT "${CMAKE_C_FLAGS_INIT} " CACHE INTERNAL "" FORCE)
 
 # -Wl,--print-gc-sections will print all removed sections
-set(CMAKE_EXE_LINKER_FLAGS_INIT "${CMAKE_EXE_LINKER_FLAGS_INIT} ${TESTO_LINKER_ARCH_FLAGS} -Wl,--gc-sections" CACHE INTERNAL "")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "${TESTO_LINKER_ARCH_FLAGS} -Wl,--gc-sections" CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS_DEBUG_INIT "-Og -g" CACHE INTERNAL "")
 set(CMAKE_C_FLAGS_RELEASE_INIT "-Os -DNDEBUG" CACHE INTERNAL "")
