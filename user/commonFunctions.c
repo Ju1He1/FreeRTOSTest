@@ -2,9 +2,9 @@
 
 
 
-#ifdef BUILD_SIMULATION
+#ifndef BUILD_TARGET
 #include "CMSIS_Simulation_Mock.h"
-#endif // BUILD_SIMULATION
+#endif // !BUILD_TARGET
 
 extern int __get_IPSR();
 

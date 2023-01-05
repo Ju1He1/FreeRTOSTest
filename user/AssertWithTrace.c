@@ -39,7 +39,7 @@ void vAssertCalled(const char* const pcFileName, unsigned long ulLine)
   taskENTER_CRITICAL();
   {
 
-#ifdef BUILD_SIMULATION
+#ifndef BUILD_TARGET
 
 #ifdef _MSC_VER
     /* Cause debugger break point if being debugged. */
@@ -47,7 +47,7 @@ void vAssertCalled(const char* const pcFileName, unsigned long ulLine)
 #endif //_MSC_VER
     //Abort Simmulation
     abort();
-#endif //BUILD_SIMMULATION
+#endif //!BUILD_TARGET
 
 #ifdef BUILD_TARGET
     //on the target we must hold the programm.

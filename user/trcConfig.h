@@ -82,10 +82,10 @@ extern "C" {
  * See trcHardwarePort.h for available ports and information on how to
  * define your own port, if not already present.
  ******************************************************************************/
-#ifdef BUILD_SIMULATION
+#ifndef BUILD_TARGET
 //Trace is disabled on Linux
 #define TRC_CFG_HARDWARE_PORT TRC_HARDWARE_PORT_Win32 
-#endif //BUILD_SIMULATION
+#endif //!BUILD_TARGET
 
 
 #ifdef BUILD_TARGET

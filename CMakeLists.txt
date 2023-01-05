@@ -177,13 +177,6 @@ if(MODULE_SOURCES)
 
   
 
-  if(BUILD_SIMULATION)
-     target_compile_definitions(${module_name} 
-       PRIVATE 
-       $<$<COMPILE_LANGUAGE:C>:BUILD_SIMULATION>
-       $<$<COMPILE_LANGUAGE:CXX>:BUILD_SIMULATION>
-     )
-  endif()
 
   target_compile_options(${module_name} PRIVATE 
     $<$<C_COMPILER_ID:MSVC>:/wd4133>

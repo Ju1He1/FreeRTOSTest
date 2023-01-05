@@ -261,7 +261,7 @@
   #endif
 
 //heju add simmulation mock
-#elif (defined(_MSC_VER) && (defined BUILD_SIMULATION))
+#elif (defined(_MSC_VER) && (!defined BUILD_TARGET))
 #include <FreeRTOS/user/CMSIS_Simulation_Mock.h>
 #else
   #error Unknown compiler.
